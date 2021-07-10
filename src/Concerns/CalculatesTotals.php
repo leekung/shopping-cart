@@ -101,7 +101,7 @@ trait CalculatesTotals
                     : 0;
             }
 
-            return round($item->price * $item->quantity * ($rate / 100), 2);
+            return Config::get('shopping-cart.tax.mode') === 'fixed-per-item' ? $rate : round($item->price * $item->quantity * ($rate / 100), 2);
         };
     }
 }
