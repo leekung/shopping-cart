@@ -18,7 +18,7 @@ interface CartContract
      *
      * @return int|float
      */
-    public function subtotal();
+    public function subtotal(): float|int;
 
     /**
      * Add an item to the cart.

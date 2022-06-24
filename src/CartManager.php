@@ -23,9 +23,9 @@ class CartManager implements Countable, CartContract
     /**
      * CartManager constructor.
      *
-     * @param  \Treestoneit\ShoppingCart\Models\Cart|\Illuminate\Database\Eloquent\Model  $cart
+     * @param Cart $cart
      */
-    public function __construct(Cart $cart)
+    final public function __construct(Cart $cart)
     {
         $this->cart = $cart;
 
@@ -35,10 +35,10 @@ class CartManager implements Countable, CartContract
     /**
      * Instantiate the cart manager with a cart id saved in the current session.
      *
-     * @param  string  $identifier
+     * @param int|string $identifier
      * @return static
      */
-    public static function fromSessionIdentifier($identifier): self
+    public static function fromSessionIdentifier(int|string $identifier): self
     {
         $cart = Cart::findOrNew($identifier);
 

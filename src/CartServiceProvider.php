@@ -45,7 +45,7 @@ class CartServiceProvider extends ServiceProvider
 
             $cart_id = intval(request()->header('cart-id'));
             $cart_hash = request()->header('cart-hash');
-            if ($cart_id && $cart_hash && sha1($cart_id . substr(config('app.key'), 0, 10)) == $cart_hash) {
+            if ($cart_id && $cart_hash && sha1($cart_id . substr(strval(config('app.key')), 0, 10)) == $cart_hash) {
                 return CartManager::fromSessionIdentifier($cart_id);
             }
 
