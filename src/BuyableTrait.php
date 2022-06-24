@@ -43,7 +43,7 @@ trait BuyableTrait
      *
      * @return float|int
      */
-    public function getExtraFees()
+    public function getExtraFees(): float|int
     {
         return 0;
     }
